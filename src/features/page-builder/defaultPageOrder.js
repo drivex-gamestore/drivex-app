@@ -24,4 +24,7 @@ export const defaultPageOrder = {
     { sectionType: "pricing-hero" },
     { sectionType: "pricingLogoSection" },
   ],
+  contact: [
+  { sectionType: "contact-hero" },
+ ],
 };

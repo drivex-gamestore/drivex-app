@@ -7,6 +7,7 @@ const PAGE_DOC_TYPES = {
   about: "aboutPage",
   work: "workPage",
   pricing: "pricingPage",
+  contact: "contactPage",
 };
 
 
