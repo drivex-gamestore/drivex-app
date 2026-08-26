@@ -20,4 +20,8 @@ export const defaultPageOrder = {
     { sectionType: "work-hero" },
     { sectionType: "workSliderSection" },
   ],
+  pricing: [
+    { sectionType: "pricing-hero" },
+    { sectionType: "pricingLogoSection" },
+  ],
 };
