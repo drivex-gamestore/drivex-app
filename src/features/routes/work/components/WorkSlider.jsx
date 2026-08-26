@@ -1,23 +1,13 @@
 'use client'
-import {
-  useState,
-  useRef,
-  useEffect,
-  useMemo,
-  useCallback,
-  forwardRef,
-  useImperativeHandle,
-  Fragment
-} from 'react'
+import { useState, useRef, useEffect, useMemo, useCallback, forwardRef, useImperativeHandle, Fragment } from 'react'
 import Link from 'next/link'
-import { cx } from 'class-variance-authority'
+import { cx } from '@lib/vendor'
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
 import { gsap, useGSAP, Draggable, InertiaPlugin } from "@lib/vendor";
 import { ScrambleText } from '@animations/components/ScrambleText'
 import { SanityMedia } from '@lib/sanity/components/SanityMedia'
 import { useMotionValueEvent } from '@shared/hooks/useMotionValueEvent'
 import { easings } from '@shared/utils/easings'
-
 
 export function WorkSlideTitle({ title, onRegisterScramble }) {
   return (

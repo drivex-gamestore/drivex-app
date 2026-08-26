@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, useRef, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import { ScrambleGroup } from '@shared/contexts/ScrambleContext'

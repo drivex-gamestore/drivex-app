@@ -78,9 +78,8 @@ export default function RootLayout({ children }) {
     url: 'https://drivexstore.shop',
     hasPart: [
       { '@type': 'WebPage', name: 'Home', url: 'https://drivexstore.shop/' },
-      { '@type': 'WebPage', name: 'Accounts', url: 'https://drivexstore.shop/accounts' },
-      { '@type': 'WebPage', name: 'Items', url: 'https://drivexstore.shop/items' },
-      { '@type': 'WebPage', name: 'Contact', url: 'https://drivexstore.shop/contact' },
+      { '@type': 'WebPage', name: 'About', url: 'https://drivexstore.shop/about' },
+      { '@type': 'WebPage', name: 'Work', url: 'https://drivexstore.shop/work' },
     ],
   };
   const themeScript = `
