@@ -83,13 +83,13 @@ export default async function HeroSection() {
                   <>
                     <br />
                     <br />
-                    {data.socialLinks.map((link, index) => (
+                    {data.socialLinks.map((item, index) => (
                       <SanityLink
-                        key={link.href ?? index}
-                        link={link}
+                        key={item._key ?? item.link?.href ?? index}
+                        link={item.link}
                         className="text-body underline underline-offset-4 hover:no-underline"
                       >
-                        {link.text}
+                        {item.link?.text ?? item.label}
                       </SanityLink>
                     ))}
                   </>
