@@ -1,14 +1,14 @@
-# DriveX — Project Links 🔗
+# DriveX — Project Links
 
-## 🌐 Website
+## Website
 - **Production:** https://www.drivexstore.shop
 - **Repo:** `drivex-app`
 
-## 🧠 Sanity Studio (CMS)
+## Sanity Studio (CMS)
 - **URL:** https://studio.drivexstore.shop
 - **Repo:** `drivex-studio`
 
-## ⚙️ Hosting
+## Hosting
 - **Platform:** Vercel
 
 ---

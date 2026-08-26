@@ -88,19 +88,18 @@ export default async function HeroSection() {
                     <br />
                     <br />
                     {data.socialLinks.map((item, index) => (
-                      <SanityLink
-                        key={item._key ?? item.link?.href ?? index}
-                        link={item.link}
-                        className="group relative inline-block no-underline outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                      >
-                      
-                      
-                        {item.link?.text ?? item.label}
-                        <span className="pointer-events-none absolute inset-x-0 -bottom-1" aria-hidden="true">
-                          <span className="absolute inset-x-0 top-0 h-px origin-left scale-x-100 bg-current transition-transform delay-300 duration-700 [transition-timing-function:cubic-bezier(0.625,0.05,0,1)] group-hover:origin-right group-hover:scale-x-0 group-hover:delay-0 group-focus-visible:origin-right group-focus-visible:scale-x-0 group-focus-visible:delay-0" />
-                          <span className="absolute inset-x-0 top-0 h-px origin-right scale-x-0 bg-current transition-transform delay-0 duration-700 [transition-timing-function:cubic-bezier(0.625,0.05,0,1)] group-hover:origin-left group-hover:scale-x-100 group-hover:delay-300 group-focus-visible:origin-left group-focus-visible:scale-x-100 group-focus-visible:delay-300" />
-                        </span>
-                      </SanityLink>
+                      <AnimatedText key={item._key ?? item.link?.href ?? index}>
+                        <SanityLink
+                          link={item.link}
+                          className="group relative inline-block no-underline outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                          {item.link?.text ?? item.label}
+                          <span className="pointer-events-none absolute inset-x-0 -bottom-1" aria-hidden="true">
+                            <span className="absolute inset-x-0 top-0 h-px origin-left scale-x-100 bg-current transition-transform delay-300 duration-700 [transition-timing-function:cubic-bezier(0.625,0.05,0,1)] group-hover:origin-right group-hover:scale-x-0 group-hover:delay-0 group-focus-visible:origin-right group-focus-visible:scale-x-0 group-focus-visible:delay-0" />
+                            <span className="absolute inset-x-0 top-0 h-px origin-right scale-x-0 bg-current transition-transform delay-0 duration-700 [transition-timing-function:cubic-bezier(0.625,0.05,0,1)] group-hover:origin-left group-hover:scale-x-100 group-hover:delay-300 group-focus-visible:origin-left group-focus-visible:scale-x-100 group-focus-visible:delay-300" />
+                          </span>
+                        </SanityLink>
+                      </AnimatedText>
                     ))}
                   </>
                 )}

@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@theme {
+
+  --font-sans: "AktivGrotesk", ui-sans-serif, system-ui, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-mono: "geistMono", "geistMono Fallback", ui-monospace, "Fira Code",
+    monospace;
+
+  --spacing: 0.0625rem;
+  --container-xl: 36rem;
+  --container-2xl: 42rem;
+
+  --font-weight-light: 300;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-wide: 0.025em;
+
+  --ease-in-quad: cubic-bezier(0.11, 0, 0.5, 0);
+  --ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
+  --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-in-cubic: cubic-bezier(0.32, 0, 0.67, 0);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in-quart: cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-in-quint: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-power2-out: var(--ease-out-cubic);
+  --ease-power3-out: var(--ease-out-quart);
+  --ease-power3-in-out: var(--ease-in-out-quart);
+  --ease-power4-in-out: var(--ease-in-out-quint);
+
+  /* Custom animations (keyframes defined near the bottom of this file) */
+  --animate-fade-in: fadeIn 0.4s ease-in-out;
+  --animate-fade-out: fadeOut 0.4s ease-in-out;
+
+  /* Fluid-typography engine: converts viewport width into a 0..1 slope
+     between --layout-min-w and --layout-max-w, used by every --text-* size */
+  --layout-min-w: 375;
+  --layout-max-w: 1600;
+  --fluid-min-w: var(--layout-min-w, 375);
+  --fluid-max-w: var(--layout-max-w, 1600);
+  --fluid-slope: calc(
+    (100vw - calc(var(--spacing) * var(--fluid-min-w))) /
+      (var(--fluid-max-w) - var(--fluid-min-w))
+  );
+
+  --text-display: clamp(
+    calc(var(--spacing) * 48),
+    calc(var(--spacing) * 48) + (128 - 48) * var(--fluid-slope),
+    calc(var(--spacing) * 128)
+  );
+  --text-display--font-weight: 500;
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.035em;
+
+  --text-h1: clamp(
+    calc(var(--spacing) * 32),
+    calc(var(--spacing) * 32) + (96 - 32) * var(--fluid-slope),
+    calc(var(--spacing) * 96)
+  );
+  --text-h1--font-weight: 400;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.035em;
+
+  --text-h2: clamp(
+    calc(var(--spacing) * 36),
+    calc(var(--spacing) * 36) + (64 - 36) * var(--fluid-slope),
+    calc(var(--spacing) * 64)
+  );
+  --text-h2--font-weight: 500;
+  --text-h2--line-height: 1.125;
+  --text-h2--letter-spacing: -0.05em;
+
+  --text-h3: clamp(
+    calc(var(--spacing) * 28),
+    calc(var(--spacing) * 28) + (48 - 28) * var(--fluid-slope),
+    calc(var(--spacing) * 48)
+  );
+  --text-h3--font-weight: 500;
+  --text-h3--line-height: 1.083;
+  --text-h3--letter-spacing: -0.05em;
+
+  --text-h4: clamp(
+    calc(var(--spacing) * 28),
+    calc(var(--spacing) * 28) + (32 - 28) * var(--fluid-slope),
+    calc(var(--spacing) * 32)
+  );
+  --text-h4--font-weight: 500;
+  --text-h4--line-height: 1.25;
+  --text-h4--letter-spacing: -0.025em;
+
+  --text-h5: clamp(
+    calc(var(--spacing) * 20),
+    calc(var(--spacing) * 20) + (20 - 20) * var(--fluid-slope),
+    calc(var(--spacing) * 20)
+  );
+  --text-h5--font-weight: 500;
+  --text-h5--line-height: 1.4;
+  --text-h5--letter-spacing: -0.025em;
+
+  --text-h6: clamp(
+    calc(var(--spacing) * 16),
+    calc(var(--spacing) * 16) + (16 - 16) * var(--fluid-slope),
+    calc(var(--spacing) * 16)
+  );
+  --text-h6--font-weight: 400;
+  --text-h6--line-height: 1;
+  --text-h6--letter-spacing: -0.05em;
+
+  --text-subheadline: clamp(
+    calc(var(--spacing) * 20),
+    calc(var(--spacing) * 20) + (24 - 20) * var(--fluid-slope),
+    calc(var(--spacing) * 24)
+  );
+  --text-subheadline--font-weight: 400;
+  --text-subheadline--line-height: 1.333;
+  --text-subheadline--letter-spacing: normal;
+
+  --text-body-lg: clamp(
+    calc(var(--spacing) * 18),
+    calc(var(--spacing) * 18) + (20 - 18) * var(--fluid-slope),
+    calc(var(--spacing) * 20)
+  );
+  --text-body-lg--font-weight: 400;
+  --text-body-lg--line-height: 1.4;
+  --text-body-lg--letter-spacing: normal;
+
+  --text-body: calc(var(--spacing) * 16);
+  --text-body--font-weight: 400;
+  --text-body--line-height: 1.5;
+  --text-body--letter-spacing: normal;
+
+  --text-body-sm: calc(var(--spacing) * 14);
+  --text-body-sm--font-weight: 400;
+  --text-body-sm--line-height: 1.43;
+  --text-body-sm--letter-spacing: normal;
+
+  --text-accent-sm: clamp(
+    calc(var(--spacing) * 12),
+    calc(var(--spacing) * 12) + (14 - 12) * var(--fluid-slope),
+    calc(var(--spacing) * 14)
+  );
+  --text-accent-sm--font-weight: 400;
+  --text-accent-sm--line-height: 1.5;
+  --text-accent-sm--letter-spacing: -0.02em;
+
+  --text-accent: clamp(
+    calc(var(--spacing) * 14),
+    calc(var(--spacing) * 14) + (16 - 14) * var(--fluid-slope),
+    calc(var(--spacing) * 16)
+  );
+  --text-accent--font-weight: 400;
+  --text-accent--line-height: 1.5;
+  --text-accent--letter-spacing: -0.02em;
+
+  --text-accent-lg: clamp(
+    calc(var(--spacing) * 18),
+    calc(var(--spacing) * 18) + (20 - 18) * var(--fluid-slope),
+    calc(var(--spacing) * 20)
+  );
+  --text-accent-lg--font-weight: 400;
+  --text-accent-lg--line-height: 1.6;
+  --text-accent-lg--letter-spacing: -0.02em;
+
+  --color-black: #141314;
+  --color-white: #eee;
+
+  --radius-4: calc(var(--spacing) * 4);
+  --radius-8: calc(var(--spacing) * 8);
+  --radius-12: calc(var(--spacing) * 12);
+  --radius-full: 9999px;
+}
+
+
+@theme inline {
+  --color-brand: var(--color-brand);
+  --color-brand-muted: var(--color-brand-muted);
+  --color-background: var(--color-background);
+  --color-background-muted: var(--color-background-muted);
+  --color-foreground: var(--color-foreground);
+  --color-foreground-muted: var(--color-foreground-muted);
+  --color-border: var(--color-border);
+  --color-border-muted: var(--color-border-muted);
+  --color-surface: var(--color-surface);
+  --spacing-header: var(--site-header-height);
+}
+
+@layer base {
+  [data-theme] {
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+  }
+}
+
+@font-face {
+  font-family: geistMono;
+  src: url(/fonts/GeistMono[wght].woff2) format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: geistMono;
+  src: url(/fonts/GeistMono-Medium.woff2) format("woff2");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "geistMono Fallback";
+  src: local(Arial);
+  ascent-override: 76.43%;
+  descent-override: 22.43%;
+  line-gap-override: 0%;
+  size-adjust: 131.49%;
+}
+
+@font-face {
+  font-family: "AktivGrotesk";
+  src: url(/fonts/AktivGroteskCorp-Regular.woff2) format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  input.text-body-sm,
+  textarea.text-body-sm,
+  select.text-body-sm {
+    font-size: 16px !important;
+  }
+}
