@@ -39,39 +39,43 @@ function IconBase({ name, className, ...rest }) {
   return <IconComponent aria-hidden={true} className={cx("size-[1em] shrink-0", className)} {...rest} />;
 }
 
-const leftIconVariants = cva({
-  base: ["flex items-center justify-center", "transition-transform duration-700 [transition-timing-function:var(--ease-power4-in-out)]"],
-  variants: {
-    size: { sm: "size-40", default: "size-48", lg: "size-56" },
-    position: {
-      left: "origin-left -rotate-45 scale-0",
-      right: "absolute right-0 z-10 origin-right rotate-0 scale-100"
+const leftIconVariants = cva(
+  ["flex items-center justify-center", "transition-transform duration-700 [transition-timing-function:var(--ease-power4-in-out)]"],
+  {
+    variants: {
+      size: { sm: "size-40", default: "size-48", lg: "size-56" },
+      position: {
+        left: "origin-left -rotate-45 scale-0",
+        right: "absolute right-0 z-10 origin-right rotate-0 scale-100"
+      },
+      theme: {
+        light: "bg-foreground text-background",
+        dark: "bg-foreground text-background",
+        brand: "bg-brand text-black"
+      }
     },
-    theme: {
-      light: "bg-foreground text-background",
-      dark: "bg-foreground text-background",
-      brand: "bg-brand text-black"
-    }
-  },
-  defaultVariants: { size: "default", theme: "light" }
-});
+    defaultVariants: { size: "default", theme: "light" }
+  }
+);
 
-const wrapperVariants = cva({
-  base: ["flex w-full flex-1 items-center justify-center", "transition-transform duration-700 [transition-timing-function:var(--ease-power4-in-out)]"],
-  variants: {
-    size: {
-      sm: "h-40 -translate-x-[calc(40px+6px)] px-12",
-      default: "h-48 -translate-x-[calc(48px+6px)] px-16",
-      lg: "h-56 -translate-x-[calc(56px+6px)] px-24"
+const wrapperVariants = cva(
+  ["flex w-full flex-1 items-center justify-center", "transition-transform duration-700 [transition-timing-function:var(--ease-power4-in-out)]"],
+  {
+    variants: {
+      size: {
+        sm: "h-40 -translate-x-[calc(40px+6px)] px-12",
+        default: "h-48 -translate-x-[calc(48px+6px)] px-16",
+        lg: "h-56 -translate-x-[calc(56px+6px)] px-24"
+      },
+      theme: {
+        light: "bg-foreground text-background",
+        dark: "bg-foreground text-background",
+        brand: "bg-brand text-black"
+      }
     },
-    theme: {
-      light: "bg-foreground text-background",
-      dark: "bg-foreground text-background",
-      brand: "bg-brand text-black"
-    }
-  },
-  defaultVariants: { size: "default", theme: "light" }
-});
+    defaultVariants: { size: "default", theme: "light" }
+  }
+);
 
 function ButtonIconWrapper({ className }) {
   return (
