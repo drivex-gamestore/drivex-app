@@ -3,6 +3,7 @@ import '../../styles/style.css';
 import AppLayout from '@components/AppLayout';
 import Script from 'next/script';
 import LocalFont from 'next/font/local';
+import { Analytics } from '@vercel/analytics/next';
 
 const geistMono = LocalFont({
 src: '../../../public/fonts/GeistMono[wght].woff2',
@@ -127,6 +128,7 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
         />
+        <Analytics />
       </body>
     </html>
   );
