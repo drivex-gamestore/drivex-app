@@ -72,6 +72,7 @@ export function AsciiCanvas({
   const containerRef = useRef(null);
   const [resolvedCellSize, setResolvedCellSize] = useState(cellSize);
   const [isVisible, setIsVisible] = useState(true);
+  const [hasSize, setHasSize] = useState(false);
 
   const effectiveHoverIntensity =
     hoverIntensity ?? (hoverMode === "headTurn" ? 0.04 : 0.15);
@@ -114,6 +115,7 @@ export function AsciiCanvas({
     const update = () => {
       const size = Math.max(el.clientWidth, el.clientHeight);
       if (!Number.isFinite(size) || size <= 0) return;
+      if (!hasSize) setHasSize(true);
       const dprFactor =
         Math.max(dpr[0], Math.min(window.devicePixelRatio ?? 1, dpr[1])) / 2;
       const next =
@@ -149,15 +151,16 @@ export function AsciiCanvas({
 
   return (
     <div ref={containerRef} className={cx("relative size-full", className)}>
-      <Canvas
-        frameloop={activeFrameloop}
-        className="opacity-100"
-        dpr={dpr}
-        gl={glConfig}
-        camera={cameraConfig}
-        style={style}
-        onCreated={onCanvasCreated}
-      >
+      {hasSize && (
+        <Canvas
+          frameloop={activeFrameloop}
+          className="opacity-100"
+          dpr={dpr}
+          gl={glConfig}
+          camera={cameraConfig}
+          style={style}
+          onCreated={onCanvasCreated}
+        >
         <DemandFrameloop frameloop={frameloop} />
         <HoverImage
           imageSrc={imageSrc}
@@ -203,7 +206,8 @@ export function AsciiCanvas({
           impactProgress={impactProgress}
           revealOrigin={revealOrigin}
         />
-      </Canvas>
+        </Canvas>
+      )}
     </div>
   );
 }

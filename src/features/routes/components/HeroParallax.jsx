@@ -14,7 +14,6 @@ import { DriveXWatermark } from "@components/utilities/DriveXWatermark";
 import { cx } from '@lib/vendor';
 import { HIGH_RES_SOURCE_WIDTHS } from "@shared/constants/constants"; 
 
-
 function ScrollText({ text, className }) {
   const containerRef = useRef(null);
   const textRef = useRef(null);
@@ -229,7 +228,7 @@ function HeroParallax({
               src={mobileSrc}
               srcSet={mobileSrcSet}
               sizes="100vw lg:0px"
-              priority={true}
+              loading="eager"
               alt={mobileAlt}
               className="size-full object-cover"
             />
@@ -319,6 +318,4 @@ function HeroParallax({
     </div>
   );
 }
-
-
 export default HeroParallax;

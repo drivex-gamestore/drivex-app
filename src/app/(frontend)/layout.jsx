@@ -5,8 +5,9 @@ import Script from 'next/script';
 import LocalFont from 'next/font/local';
 
 const geistMono = LocalFont({
-src: '../../../public/fonts/GeistMono[wght].woff2',
+  src: '../../../public/fonts/GeistMono[wght].woff2',
   variable: '--font-geist-mono',
+  preload: false,
 });
 
 export const metadata = {
