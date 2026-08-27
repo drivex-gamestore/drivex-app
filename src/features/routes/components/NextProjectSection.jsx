@@ -4,9 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { gsap, ScrollTrigger, useGSAP } from '@lib/vendor';
 import { usePageTransition } from '@shared/hooks/usePageTransition';
-
 import { Link } from '@shared/constants/navigation';
-
 import { SanityMedia } from '@lib/sanity/components/SanityMedia';
 
 
