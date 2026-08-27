@@ -32,26 +32,22 @@ const mediaProjection = `{
   videoOptions
 }`;
 
-
-const CONTENT_BLOCK_QUERY = `*[_type == "contentBlockSection" && _id == $id][0]{
+// Reusable document type (like contentBlockSection), selected per pageBuilder
+// entry by its own _id rather than looked up as a page singleton.
+const MEDIA_SECTION_QUERY = `*[_type == "mediaSection" && _id == $id][0]{
   theme,
-  selector,
   className,
-  layout,
-  "headline": content.headline{ level, text },
-  "headlineDisplay": content.headlineDisplay,
-  "secondaryHeadline": content.secondaryHeadline{ level, text },
-  "media": content.media${mediaProjection},
-  "mediaSize": content.mediaSize,
-  "text": content.text,
-  "primaryCta": content.ctas.primary{ variant, theme, size, link },
-  "secondaryCta": content.ctas.secondary{ variant, theme, size, link },
-  "footnote": content.footnote
+  "items": items[]{
+    _key,
+    "media": media${mediaProjection},
+    lgSpan,
+    lgStart
+  }
 }`;
 
-export async function getContentBlockSectionData(id) {
+export async function getMediaSectionData(id) {
   return sanityClient.fetch(
-    CONTENT_BLOCK_QUERY,
+    MEDIA_SECTION_QUERY,
     { id },
     { next: { revalidate: 60 } }
   );

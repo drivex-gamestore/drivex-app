@@ -72,4 +72,3 @@ export function createResponsiveRatios(ratioValue) {
     ]
   };
 }
-// original module IDs: 601247, 2379

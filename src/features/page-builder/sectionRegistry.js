@@ -11,6 +11,7 @@ import StorySection from "@routes/about/StorySection";
 
 import WorkHeroSection from "@routes/work/HeroSection";
 import WorkSliderSection from "@routes/work/WorkSliderSection";
+import MediaSection from "@routes/work/MediaSection";
 
 import PricingHeroSection from "@routes/pricing/HeroSection";
 import PricingLogoSection from "@routes/pricing/LogoSection";
@@ -30,6 +31,7 @@ export const sectionRegistry = {
   storySection: StorySection,
   "work-hero": WorkHeroSection,
   workSliderSection: WorkSliderSection,
+  mediaSection: MediaSection,
   "pricing-hero": PricingHeroSection,
   pricingLogoSection: PricingLogoSection,
   "contact-hero": ContactHeroSection,

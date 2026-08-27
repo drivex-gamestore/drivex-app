@@ -1,12 +1,10 @@
 
 import { cx } from '@lib/vendor';
-import { AnimatedHeadline } from "@features/animations/components/AnimatedHeadline";
+import { ScrollAnimatedHeadline } from "@animations/components/ScrollAnimatedHeadline";
 import { SanityMedia } from "@lib/sanity/components/SanityMedia";
 import { SanityRichText } from "@lib/sanity/components/SanityRichText";
 import { SanityButton } from "@lib/sanity/components/SanityButton";
 import { getContentBlockSectionData } from "@lib/sanity/queries/HomePage/ContentBlockSectionData";
-
-
 
 export default async function ContentBlockSection({ id }) {
   const data = await getContentBlockSectionData(id);
@@ -22,6 +20,7 @@ export default async function ContentBlockSection({ id }) {
     headlineDisplay,
     secondaryHeadline,
     media,
+    mediaSize = "compact",
     text,
     primaryCta,
     secondaryCta,
@@ -29,36 +28,60 @@ export default async function ContentBlockSection({ id }) {
   } = data;
 
   const mediaFirst = layout !== "mediaRight";
+  const isWide = mediaSize === "wide";
 
   const mediaColumn = media ? (
-    <div className="grid-span-12 lg:grid-span-6 lg:grid-start-1 ">
-      <div className="flex h-full flex-col justify-start items-start gap-80">
+    <div
+      className={
+        isWide
+          ? "grid-span-12 lg:grid-span-4 lg:grid-start-2 "
+          : "grid-span-12 lg:grid-span-3 lg:grid-start-2 "
+      }
+    >
+      <div
+        className={
+          isWide
+            ? "flex h-full flex-col justify-between items-start gap-80"
+            : "flex h-full flex-col justify-between items-start gap-16"
+        }
+      >
         <div>
-          <div>
-            <AnimatedHeadline as="h2" trigger="scroll" displayAs={headlineDisplay}>
-              {headline?.text}
-            </AnimatedHeadline>
-          </div>
+          <ScrollAnimatedHeadline
+            headline={{ level: headline?.level || "h2", text: headline?.text }}
+            displayAs={headlineDisplay}
+          />
         </div>
-        <div className="max-lg:!max-w-full w-full h-full">
-          <div className="overflow-hidden h-full" style={{ aspectRatio: "16 / 9" }}>
-            <SanityMedia media={media} className="size-full" />
+        {isWide ? (
+          <div className="max-lg:!max-w-full w-full h-full" style={{ maxWidth: "75%" }}>
+            <div className="overflow-hidden h-full">
+              <SanityMedia media={media} className="size-full" />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="max-lg:!max-w-full w-full h-full">
+            <div className="overflow-hidden h-full" style={{ aspectRatio: "16/9" }}>
+              <SanityMedia media={media} className="size-full object-cover" />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   ) : null;
 
   const textColumn = (
-    <div className="grid-span-12 lg:grid-span-4 lg:grid-start-8 ">
-      <div className="flex h-full flex-col justify-between items-start gap-16">
+    <div className="grid-span-12 lg:grid-span-5 lg:grid-start-7 ">
+      <div className="flex h-full flex-col justify-start items-start gap-32">
         {secondaryHeadline?.text && (
           <div>
-            <div>
-              <AnimatedHeadline as="h4" trigger="scroll">
-                {secondaryHeadline.text}
-              </AnimatedHeadline>
-            </div>
+            <ScrollAnimatedHeadline
+              headline={{ level: secondaryHeadline.level || "h3", text: secondaryHeadline.text }}
+            />
+          </div>
+        )}
+
+        {secondaryHeadline?.text && text && (
+          <div className="w-full pt-32 lg:pt-64 pb-32 lg:pb-64">
+            <hr className="w-full border-border border-t" />
           </div>
         )}
 

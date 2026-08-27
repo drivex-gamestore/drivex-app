@@ -3,6 +3,7 @@ import '../../styles/style.css';
 import AppLayout from '@components/AppLayout';
 import Script from 'next/script';
 import LocalFont from 'next/font/local';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistMono = LocalFont({
   src: '../../../public/fonts/GeistMono[wght].woff2',
@@ -111,8 +112,10 @@ export default function RootLayout({ children }) {
         <AppProviders>
           <AppLayout>
             {children}
+            <SpeedInsights />
           </AppLayout>
         </AppProviders>
+        
         <Script
           id="website-schema"
           type="application/ld+json"
