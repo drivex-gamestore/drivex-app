@@ -1,6 +1,6 @@
 import { cx } from '@lib/vendor';
 import { SanityMedia } from "@lib/sanity/components/SanityMedia";
-import { getMediaSectionData } from "@lib/sanity/queries/WorkPage/MediaSectionData";
+import { getMediaSectionData } from "@lib/sanity/queries/WorkPage/animations/MediaSectionData";
 
 export default async function MediaSection({ id }) {
   const data = await getMediaSectionData(id);
