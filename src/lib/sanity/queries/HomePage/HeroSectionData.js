@@ -3,6 +3,7 @@ import { sanityClient } from "@lib/sanity/client";
 const imageProjection = `{
   "_id": asset->_id,
   "_rev": asset->_rev,
+  "url": asset->url,
   "altText": coalesce(alt, asset->altText),
   "crop": crop,
   "description": asset->description,
@@ -52,6 +53,11 @@ const HERO_QUERY = `*[_type == "heroSection"][0]{
         variant,
         svgCode
       },
+      _type == "reference" => {
+        "svgCode": @->svgCode,
+        "alt": @->title,
+        "variant": "logo"
+      },
       _type == "textItem" => {
         text
       }
@@ -67,6 +73,7 @@ const HERO_QUERY = `*[_type == "heroSection"][0]{
   "asciiRevealOriginY": content.asciiRevealOriginY,
   "asciiMobileFallback": content.asciiMobileFallback${imageProjection}
 }`;
+
 
 export async function getHeroSectionData() {
   return sanityClient.fetch(HERO_QUERY, {}, { next: { revalidate: 60 } });
