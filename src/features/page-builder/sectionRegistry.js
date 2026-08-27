@@ -11,7 +11,8 @@ import StorySection from "@routes/about/StorySection";
 
 import WorkHeroSection from "@routes/work/HeroSection";
 import WorkSliderSection from "@routes/work/WorkSliderSection";
-import MediaSection from "@routes/work/MediaSection";
+
+import MediaSection from "@routes/general/animations/MediaSection";
 
 import PricingHeroSection from "@routes/pricing/HeroSection";
 import PricingLogoSection from "@routes/pricing/LogoSection";
