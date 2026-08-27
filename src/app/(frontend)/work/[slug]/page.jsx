@@ -6,7 +6,7 @@ import { sectionRegistry } from "@features/page-builder/sectionRegistry";
 
 import { getHeroSectionData } from "@lib/sanity/queries/WorkPage/animations/HeroSectionData";
 import { getProjectPageBuilderSections } from "@lib/sanity/queries/WorkPage/ProjectPageBuilderData";
-import { getNextProject } from "@lib/sanity/queries/WorkPage/NextProjectData";
+import { getNextProject } from "@lib/sanity/queries/WorkPage/animations/NextProjectData";
 
 function ProjectSections({ sections }) {
   return sections.map((section, index) => {
