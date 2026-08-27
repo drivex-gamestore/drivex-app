@@ -7,19 +7,19 @@ const imageProjection = `{
   "hotspot": hotspot, "lqip": asset->metadata.lqip, "title": asset->title
 }`;
 
-const HERO_QUERY = `*[_type == "heroSection" && slug.current == $slug][0]{
+const HERO_QUERY = `*[_type == "project" && slug.current == $slug][0]{
   _id, title, tags,
   "hero": {
-    "media": coalesce(content.media{ type, aspectRatio, highResolution, "image": image${imageProjection}, video, externalVideoUrl, videoOptions },
-      { "type": "image", "aspectRatio": content.image.asset->metadata.dimensions.aspectRatio, "image": content.image${imageProjection} }),
-    "mobileImage": content.mobileImage${imageProjection},
-    "headline": content.headline, 
-    "headlineLevel": content.headlineLevel, 
-    "headlineDisplay": content.headlineDisplay,
-    "subtext": content.subtext,
-    "ctas": content.ctas{ layout, gap, buttons[]{ _key, variant, theme, size, "link": link{canDownload,href,modalId,openInNewTab,text,type} } },
-    "scrollText": coalesce(content.scrollText, title),
-    "useWatermark": content.useWatermark
+    "media": coalesce(mainImage{ type, aspectRatio, highResolution, "image": image${imageProjection}, video, externalVideoUrl, videoOptions },
+      { "type": "image", "aspectRatio": image.asset->metadata.dimensions.aspectRatio, "image": image${imageProjection} }),
+    "mobileImage": hero.mobileImage${imageProjection},
+    "headline": hero.headline,
+    "headlineLevel": hero.headlineLevel,
+    "headlineDisplay": hero.headlineDisplay,
+    "subtext": hero.subtext,
+    "ctas": hero.ctas{ layout, gap, buttons[]{ _key, variant, theme, size, "link": link{canDownload,href,modalId,openInNewTab,text,type} } },
+    "scrollText": coalesce(hero.scrollText, title),
+    "useWatermark": hero.useWatermark
   }
 }`;
 
