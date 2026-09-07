@@ -92,7 +92,7 @@ export function AsciiEffectPass({
     ]
   );
 
-  // Load depth map when enabled
+
   useEffect(() => {
     if (!depthMapSrc || !enableDepthParallax) return;
     const loader = new TextureLoader();

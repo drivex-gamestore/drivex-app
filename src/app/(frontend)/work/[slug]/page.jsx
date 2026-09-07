@@ -1,15 +1,10 @@
 import { notFound } from "next/navigation";
-
 import HeroSection from "@routes/general/animations/HeroSection";
 import ProjectInfoSection from "@routes/work/ProjectInfoSection";
-
 import { NextProjectSection } from "@routes/components/NextProjectSection";
-
 import { sectionRegistry } from "@features/page-builder/sectionRegistry";
-
 import { getHeroSectionData } from "@lib/sanity/queries/WorkPage/animations/HeroSectionData";
 import { getProjectPageBuilderSections } from "@lib/sanity/queries/WorkPage/ProjectPageBuilderData";
-
 import { getNextProject } from "@lib/sanity/queries/WorkPage/animations/NextProjectData";
 
 function ProjectSections({ sections }) {

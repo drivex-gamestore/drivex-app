@@ -90,11 +90,7 @@ function showAtlasDebug(canvas, config) {
   panel.appendChild(preview);
 }
 
-/**
- * Logs atlas pixel statistics when they change.
- * @param {CanvasRenderingContext2D} ctx
- * @param {{ size: number, cell: number, characters: string, fontSize: number }} config
- */
+
 function logAtlasStats(ctx, config) {
   const { size } = config;
   const data = ctx.getImageData(0, 0, size, size).data;
@@ -138,10 +134,6 @@ function isDebugEnabled() {
   return debugState.enabled || window.__ASCII_DEBUG__ === true;
 }
 
-/**
- * Enable / disable ASCII debug mode.
- * @param {boolean} enabled
- */
 function setDebugEnabled(enabled) {
   debugState.enabled = enabled;
   if (enabled) {

@@ -45,14 +45,12 @@ export function WorkSlideItem({
   )
 
   const itemX = useTransform(springX, calculateX)
-
   const calculateParallaxX = useCallback(
     (x) => -(((x + slideWidth / 2 - containerWidth / 2) / containerWidth) * 150),
     [containerWidth, slideWidth]
   )
 
   const parallaxX = useTransform(itemX, calculateParallaxX)
-
   const containerStyle = useMemo(
     () => ({
       x: itemX,
@@ -65,9 +63,7 @@ export function WorkSlideItem({
   )
 
   const targetUri = item.uri ?? '#'
-
   const handleMouseEnter = () => scrambleRef.current?.()
-
   const handleClick = (e) => {
     if (isDraggingRef.current || hasDraggedRef.current) {
       e.preventDefault()
@@ -369,7 +365,6 @@ export const WorkSlider = forwardRef(function WorkSlider(
   }, [])
 
   const hasContent = items.length > 0 && dimensions.containerWidth > 0
-
   return (
     <div className={cx('relative', className)}>
       <div

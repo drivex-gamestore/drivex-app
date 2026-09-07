@@ -13,11 +13,8 @@ export const springTransition = {
 
 export function WorkCard({ _id, title, uri, tags, mainImage, className }) {
   const scrambleRef = useRef(null)
-
   const handleMouseEnter = () => scrambleRef.current?.()
-
   const targetUri = uri ?? '#'
-
   return (
     <motion.div
       layoutId={_id}

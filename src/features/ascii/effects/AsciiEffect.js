@@ -258,10 +258,6 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 }
 `;
 
-/**
- * Custom postprocessing Effect that renders the input buffer as ASCII art.
- * Extends the postprocessing Effect base class.
- */
 export class AsciiEffect extends Effect {
   charactersTexture = null;
   depthMapTexture = null;

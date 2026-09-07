@@ -31,7 +31,6 @@ export function SliderControls({ onPrev, onNext, className }) {
   )
 }
 
-// Original mangled identifier: $ -> WorkSliderPagination
 export function WorkSliderPagination({
   items,
   currentIndex,
@@ -157,7 +156,6 @@ const VIEW_MODES = [
   }
 ]
 
-// Original mangled identifier: J -> ViewModeToggle
 export function ViewModeToggle({ value, onChange, className }) {
   return (
     <div className={cx('flex items-center gap-4', className)} role="group" aria-label="View mode">

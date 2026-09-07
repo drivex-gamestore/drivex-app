@@ -7,13 +7,9 @@ import { AnimatedText } from "@features/animations/components/AnimatedText";
 
 export default async function StorySection({ id, className }) {
   const data = await getStorySectionData();
-
   if (!data) return null;
-
   const { theme, selector, headline, label, text, image } = data;
-
   const paragraphs = text ? text.split(/\n\s*\n/) : [];
-
   const builderOptions = image?.highResolution
     ? { sourceWidths: HIGH_RES_SOURCE_WIDTHS }
     : undefined;

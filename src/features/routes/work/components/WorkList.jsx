@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { SanityMedia } from '@lib/sanity/components/SanityMedia'
 import { springTransition } from '@routes/work/components/WorkCard'
 
-
 export function WorkList({ items, className }) {
   return (
     <div className={cx('grid-container', className)}>
@@ -19,7 +18,6 @@ export function WorkList({ items, className }) {
     </div>
   )
 }
-
 
 export function WorkListItem({ item }) {
   return (

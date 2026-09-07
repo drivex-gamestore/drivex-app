@@ -139,7 +139,7 @@ export function AsciiTypewriter({
     };
   }, [delay, duration, colorDelay, linear, prefersReducedMotion, onComplete, disableInternalAnimation]);
 
-  // Click-triggered radial color animation
+
   const triggerClickReveal = useRef(() => {});
   triggerClickReveal.current = (point, delayMs = 0) => {
     if (!animationFinishedRef.current || clickAnimFrameRef.current !== null)
@@ -188,7 +188,7 @@ export function AsciiTypewriter({
     }
   };
 
-  // Impact flash animation
+
   const triggerImpact = useRef(() => {});
   triggerImpact.current = () => {
     if (prefersReducedMotion) return;
@@ -209,7 +209,7 @@ export function AsciiTypewriter({
     impactAnimFrameRef.current = requestAnimationFrame(step);
   };
 
-  // Keyboard shortcut "C" to re-trigger from current origin
+
   useEffect(() => {
     const onKey = (e) => {
       if (
@@ -252,7 +252,7 @@ export function AsciiTypewriter({
     []
   );
 
-  // Track in-view for keyboard shortcut
+
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;

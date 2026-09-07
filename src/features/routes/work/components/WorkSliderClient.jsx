@@ -100,9 +100,7 @@ export default function WorkSliderClient({ section }) {
   }
 
   const isSliderMode = viewMode === 'slider'
-
   if (!caseStudies || caseStudies.length === 0) return null
-
   const displayFilterLabel = filterLabel ?? 'FILTER'
   const sliderOpacity = isSliderMode ? 1 : 0
   const sliderPointerEvents = isSliderMode ? 'auto' : 'none'
